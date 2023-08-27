@@ -1,9 +1,4 @@
-.iti__flag {
-  background-image: url('intl-tel-input/build/img/flags.png');
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .iti__flag {
-    background-image: url('intl-tel-input/build/img/flags@2x.png');
-  }
+.react-tel-input .form-control {
+  height: 32px;
+  width: 100%;
 }

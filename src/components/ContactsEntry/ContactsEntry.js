@@ -17,8 +17,11 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
   number: Yup.string()
     .min(5, 'Too Short!')
-    .max(20, 'Too Long!')
-    .matches(/^\d+$/, 'Must only contain digits')
+    .max(15, 'Too Long!')
+    .matches(
+      /\(\d{3}\)\s\d{3}-\d{2}-\d{2}/g,
+      'Must contain only numbers or be in the correct format'
+    )
     .required('Required'),
 });
 
@@ -55,7 +58,7 @@ export const ContactsEntry = ({ title, state, onAdd }) => {
             type="tel"
             name="number"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            placeholder="User phone"
+            placeholder="Phone number in the format (123) 456-78-90"
             required
           />
           <ErrorMsg name="number" component="span"></ErrorMsg>
