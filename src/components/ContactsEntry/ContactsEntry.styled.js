@@ -16,16 +16,35 @@ export const StyledField = styled(Field)`
 `;
 
 export const Button = styled.button`
-  margin: 16px auto 0;
+  margin: 16px auto;
   padding: 4px;
   width: 10em;
   border: 1px solid blue;
   border-radius: 4px;
   background-color: #dddddd;
   cursor: pointer;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  transition: color 150ms ease-in, background-color 150ms ease-in,
+    scale 150ms ease-in;
+  &:is(:hover, :focus) {
+    outline: none;
+    color: white;
+    background-color: teal;
+  }
+  &:active {
+    scale: 0.95;
+  }
 `;
 
 export const ErrorMsg = styled(ErrorMessage)`
   font-size: 14px;
   color: red;
+`;
+
+export const Title = styled.h1`
+  text-align: center;
+  font-size: 28px;
+  color: teal;
 `;
