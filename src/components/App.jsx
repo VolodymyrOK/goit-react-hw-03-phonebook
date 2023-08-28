@@ -14,15 +14,20 @@ export class App extends Component {
   };
 
   addContact = newContacts => {
-    this.state.contacts.find(item => item.name === newContacts.name)
-      ? alert(newContacts.name + ' is already in contacts')
-      : this.setState(prevState => ({
-          contacts: [...prevState.contacts, { id: nanoid(4), ...newContacts }],
-        }));
+    const isDuplicated = this.state.contacts.find(
+      item => item.name.toLowerCase() === newContacts.name.toLowerCase()
+    );
+    if (isDuplicated)
+      return alert(newContacts.name + ' is already in contacts');
+
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, { id: nanoid(4), ...newContacts }],
+    }));
   };
 
   delContact = idContact => {
-    window.confirm('Are you sure?') &&
+    const isDelete = window.confirm('Are you sure?');
+    if (isDelete)
       this.setState(prevState => ({
         contacts: prevState.contacts.filter(item => item.id !== idContact),
       }));
@@ -34,10 +39,13 @@ export class App extends Component {
     });
   };
 
-  render() {
-    const contacts = this.state.contacts.filter(item =>
+  getVisibleContacts = () =>
+    this.state.contacts.filter(item =>
       item.name.toLowerCase().includes(this.state.filter.toLowerCase())
     );
+
+  render() {
+    const contacts = this.getVisibleContacts();
 
     return (
       <Layout>

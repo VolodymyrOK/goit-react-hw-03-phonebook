@@ -16,7 +16,6 @@ export const ContactsList = ({
   onFilterElement,
   filter,
 }) => {
-  console.log(contacts.length);
   return (
     <>
       <HeadContacts>
