@@ -53,7 +53,7 @@ export class App extends Component {
           title="Phonebook"
           state={this.state}
           onAdd={this.addContact}
-        ></ContactsEntry>
+        />
 
         <ContactsList
           title="Contacts"
@@ -61,7 +61,7 @@ export class App extends Component {
           filter={this.state.filter}
           contacts={contacts}
           onDelContact={this.delContact}
-        ></ContactsList>
+        />
         <GlobalStyle />
       </Layout>
     );
