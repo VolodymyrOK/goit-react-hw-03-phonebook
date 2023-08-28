@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import { GlobalStyle } from 'styles/GlobalStyles';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
+import data from '../data/data.json';
 import { Layout } from 'styles/Layout';
 import { ContactsEntry } from './ContactsEntry/ContactsEntry';
 import { ContactsList } from './ContactsList/ContactsList';
-import data from '../data/data.json';
-import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
