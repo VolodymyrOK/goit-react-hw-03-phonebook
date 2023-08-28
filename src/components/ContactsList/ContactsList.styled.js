@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Title = styled.h2`
   font-size: 28px;
-  color: DarkSlateBlue;
+  color: ${({ theme: { colors } }) => colors.colorH2};
 `;
 export const HeadContacts = styled.div`
   display: flex;
@@ -20,13 +20,13 @@ export const ContactListItem = styled.li`
     &:nth-child(1) {
       margin-bottom: 8px;
       font-size: 18px;
-      color: black;
+      color: ${({ theme: { colors } }) => colors.colorName};
       font-style: italic;
     }
     &:nth-child(2) {
       margin-left: 18px;
       font-weight: 500;
-      color: green;
+      color: ${({ theme: { colors } }) => colors.colorPhone};
     }
   }
 `;
@@ -41,9 +41,15 @@ export const DelButton = styled.button`
     scale 150ms ease-in;
   &:is(:hover, :focus) {
     color: white;
-    background-color: tomato;
+    background-color: ${({ theme: { colors } }) => colors.bgcDelBtnHover};
   }
   &:active {
     scale: 0.95;
   }
+`;
+
+export const MessageAboutEmpty = styled.div`
+  font-weight: 500;
+  text-align: center;
+  color: ${({ theme: { colors } }) => colors.colorErr};
 `;

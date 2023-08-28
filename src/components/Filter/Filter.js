@@ -7,10 +7,7 @@ export const Filter = ({ filter, onFilterElement }) => {
         type="text"
         value={filter}
         placeholder="Search..."
-        onChange={evt => {
-          console.log(evt.target.value);
-          onFilterElement(evt.target.value);
-        }}
+        onChange={evt => onFilterElement(evt.target.value)}
       ></Input>
     </>
   );

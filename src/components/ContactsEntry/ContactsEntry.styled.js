@@ -21,7 +21,7 @@ export const Button = styled.button`
   width: 10em;
   border: 1px solid blue;
   border-radius: 4px;
-  background-color: #dddddd;
+  background-color: ${({ theme: { colors } }) => colors.bgColorBtn};
   cursor: pointer;
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
@@ -30,8 +30,8 @@ export const Button = styled.button`
     scale 150ms ease-in;
   &:is(:hover, :focus) {
     outline: none;
-    color: white;
-    background-color: teal;
+    color: ${({ theme: { colors } }) => colors.colorBtnHover};
+    background-color: ${({ theme: { colors } }) => colors.bgColorBtnHover};
   }
   &:active {
     scale: 0.95;
@@ -40,11 +40,11 @@ export const Button = styled.button`
 
 export const ErrorMsg = styled(ErrorMessage)`
   font-size: 14px;
-  color: red;
+  color: ${({ theme: { colors } }) => colors.colorErr};
 `;
 
 export const Title = styled.h1`
   text-align: center;
   font-size: 28px;
-  color: teal;
+  color: ${({ theme: { colors } }) => colors.colorH1};
 `;

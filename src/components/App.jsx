@@ -5,6 +5,7 @@ import { Layout } from 'styles/Layout';
 import { ContactsEntry } from './ContactsEntry/ContactsEntry';
 import { ContactsList } from './ContactsList/ContactsList';
 import data from '../data/data.json';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -37,6 +38,7 @@ export class App extends Component {
     const contacts = this.state.contacts.filter(item =>
       item.name.toLowerCase().includes(this.state.filter.toLowerCase())
     );
+
     return (
       <Layout>
         <ContactsEntry
@@ -57,3 +59,22 @@ export class App extends Component {
     );
   }
 }
+
+ContactsEntry.propTypes = {
+  title: PropTypes.string,
+  state: PropTypes.object,
+  onAdd: PropTypes.func,
+};
+ContactsList.propTypes = {
+  title: PropTypes.string,
+  onFilterElement: PropTypes.func,
+  filter: PropTypes.string,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  onDelContact: PropTypes.func,
+};
