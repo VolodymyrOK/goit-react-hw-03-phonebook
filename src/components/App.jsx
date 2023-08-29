@@ -7,11 +7,27 @@ import { Layout } from 'styles/Layout';
 import { ContactsEntry } from './ContactsEntry/ContactsEntry';
 import { ContactsList } from './ContactsList/ContactsList';
 
+const STORAGE_KEY = 'storage-contacts';
+
 export class App extends Component {
   state = {
     contacts: data,
     filter: '',
   };
+
+  //==================  New elements ======================================
+  componentDidMount() {
+    const storageContacts = localStorage.getItem(STORAGE_KEY);
+    if (localStorage.getItem(STORAGE_KEY) !== null)
+      this.setState({ contacts: JSON.parse(storageContacts) });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState);
+    if (prevState.contacts !== this.state.contacts)
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.state.contacts));
+  }
+  //=================== /New elements =======================================
 
   addContact = newContacts => {
     const isDuplicated = this.state.contacts.find(
