@@ -10,7 +10,6 @@ import {
 } from './ContactsList.styled';
 
 export const ContactsList = ({
-  title,
   contacts,
   onDelContact,
   onFilterElement,
@@ -19,7 +18,7 @@ export const ContactsList = ({
   return (
     <>
       <HeadContacts>
-        <Title>{title}</Title>
+        <Title>Contacts</Title>
         <Filter onFilterElement={onFilterElement} filter={filter} />
       </HeadContacts>
       <ContactList>
@@ -41,7 +40,15 @@ export const ContactsList = ({
   );
 };
 
-Filter.propTypes = {
+ContactsList.propTypes = {
   onFilterElement: PropTypes.func,
   filter: PropTypes.string,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  onDelContact: PropTypes.func,
 };

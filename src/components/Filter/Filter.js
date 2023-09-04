@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Input } from './Filter.styled';
 
 export const Filter = ({ filter, onFilterElement }) => {
@@ -11,4 +12,9 @@ export const Filter = ({ filter, onFilterElement }) => {
       ></Input>
     </>
   );
+};
+
+Filter.propTypes = {
+  onFilterElement: PropTypes.func,
+  filter: PropTypes.string,
 };
